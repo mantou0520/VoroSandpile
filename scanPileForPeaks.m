@@ -19,9 +19,9 @@ function peak_pos = scanPileForPeaks(pile, pile_width)
 %
 % See also: simulateSandpile
 %
-% Author: Florian Roscheck
-% Website: http://github.com/flrs/visual_sandpile
-% January 2017; Last revision: 27-January-2017
+% Author: Teng Man
+% Website: 
+% November 2021; 
 
 %------------- BEGIN CODE --------------
 peak_pos = [];
