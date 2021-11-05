@@ -33,9 +33,9 @@ function plotVoroPile(pile_store, pile_store_add,pile_img, pointer_patch,...
 %
 % See also: setupPlots
 %
-% Author: Florian Roscheck
+% Author: Teng Man
 % Website: http://github.com/flrs/visual_sandpile
-% January 2017; Last revision: 27-January-2017
+% November 2021
 
 %------------- BEGIN CODE --------------
 
