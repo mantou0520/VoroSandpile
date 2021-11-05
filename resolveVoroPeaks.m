@@ -23,11 +23,11 @@ function [pile, particles, intermediate_piles] = resolveVoroPeaks(pile, particle
 % Subfunctions: none
 % MAT-files required: none
 %
-% See also: scanPileForPeaks
+% See also: 
 %
-% Author: Florian Roscheck
-% Website: http://github.com/flrs/visual_sandpile
-% January 2017; Last revision: 27-January-2017
+% Author: Teng Man
+% Website: 
+% November 2021; 
 
 %------------- BEGIN CODE --------------
 %% initialize
