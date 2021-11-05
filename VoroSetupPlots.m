@@ -27,9 +27,9 @@ function [pointer_patch, pile_img, avalanche_ct_plot,...
 %
 % See also: plotPile
 %
-% Author: Florian Roscheck
-% Website: http://github.com/flrs/visual_sandpile
-% January 2017; Last revision: 27-January-2017
+% Author: Teng Man
+% Website: 
+% November 2021; Last revision: 
 
 %------------- BEGIN CODE --------------
 %% Set up avalanche size plot
