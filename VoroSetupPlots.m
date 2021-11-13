@@ -1,5 +1,5 @@
 function [pointer_patch, pile_img, avalanche_ct_plot,...
-    avalanche_desc_text] = VoroSetupPlots(pile_width, draw_speed, pile, Vert, Edge)
+    avalanche_desc_text] = VoroSetupPlots(pile_width, no_of_voronoi, draw_speed, pile, Vert, Edge)
 %setupPlots - This function sets up the sandpile and the avalanche plot
 %
 % Syntax:  [pointer_patch, pile_img avalanche_ct_plot,...
@@ -8,6 +8,7 @@ function [pointer_patch, pile_img, avalanche_ct_plot,...
 % Inputs:
 %    pile_width - Side length of the square pile
 %    draw_speed - Speed of animation
+%    no_of_voronoi - number of voronoi elements
 %
 % Outputs:
 %    pointer_patch - Handle of the patch that shows where new grains have
@@ -29,31 +30,35 @@ function [pointer_patch, pile_img, avalanche_ct_plot,...
 %
 % Author: Teng Man
 % Website: 
-% November 2021; Last revision: 
+% November 2021
+% Reference: https://github.com/flrs/visual_sandpile
 
 %------------- BEGIN CODE --------------
 %% Set up avalanche size plot
-figure('position', [750 200 700 500], 'Color', [1 1 1]);
-avalanche_ct_plot = loglog(0, 0, '.-k', 'LineWidth', 1.5, 'MarkerSize', 10);
+% figure('position', [750 200 700 500], 'Color', [1 1 1]);
+% avalanche_ct_plot = loglog(0, 0, '.-k', 'LineWidth', 1.5, 'MarkerSize', 10);
+% 
+% title('Avalanche Sizes Follow Power Law');
+% xlabel('Avalanche size D(s)');
+% ylabel('No. of observed avalanches s');
+% 
+% grid on
+% set(gca, 'TickDir', 'out')
+% box off
+% 
+% % set up descriptive text
+% avalanche_desc_text = text(1, 1,...
+%     {'0 sand grains'; 
+%     [num2str(pile_width) 'x' num2str(pile_width) ' pile size']},...
+%     'HorizontalAlignment','right',...
+%     'BackgroundColor','w');
 
-title('Avalanche Sizes Follow Power Law');
-xlabel('Avalanche size D(s)');
-ylabel('No. of observed avalanches s');
-
-grid on
-set(gca, 'TickDir', 'out')
-box off
-
-% set up descriptive text
-avalanche_desc_text = text(1, 1,...
-    {'0 sand grains'; 
-    [num2str(pile_width) 'x' num2str(pile_width) ' pile size']},...
-    'HorizontalAlignment','right',...
-    'BackgroundColor','w');
+avalanche_ct_plot = [];
+avalanche_desc_text = [];
 
 %% Set up sandpile plot
 if draw_speed
-    figure('position', [200 200 500 500]);
+    fig1 = figure('position', [200 200 500 500]);
     pile_img = voronoi(pile(:,1), pile(:,2));
     hold on
     MaxNbr = max(pile(:,4));
@@ -79,9 +84,10 @@ if draw_speed
     
     % initialize patch for new grains
     t = 0:pi/6:2*pi;
-    % pointer_patch = [];
-    pointer_patch = patch(3*sin(t)+0, 3*cos(t)+0, 0,...
-        'EdgeColor', 'none', 'FaceColor', [244 165 130]/255);
+    pointer_patch = [];
+%     pointer_patch = patch(3*sin(t)+0, 3*cos(t)+0, 0,...
+%         'EdgeColor', 'none', 'FaceColor', [244 165 130]/255);
+    exportgraphics(fig1,'initialConfig.png','Resolution',1500)
 else
     % draw_speed == 0, so we are not even plotting the sandpile
     pile_img = [];
