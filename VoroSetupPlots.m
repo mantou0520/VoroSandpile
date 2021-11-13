@@ -87,7 +87,7 @@ if draw_speed
     pointer_patch = [];
 %     pointer_patch = patch(3*sin(t)+0, 3*cos(t)+0, 0,...
 %         'EdgeColor', 'none', 'FaceColor', [244 165 130]/255);
-    exportgraphics(fig1,'initialConfig.png','Resolution',1500)
+    exportgraphics(fig1,'initialConfig.png','Resolution',600)
 else
     % draw_speed == 0, so we are not even plotting the sandpile
     pile_img = [];
