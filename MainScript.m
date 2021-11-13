@@ -188,7 +188,7 @@ legend('Data','Ferenc & Neda 2007','FontSize',12,'location','southwest')
 set(gca,'FontName','Nimbus Roman')
 set(gca, 'FontSize',14)
 
-exportgraphics(voroFig,'LakeFig.png','Resolution',900)
+exportgraphics(voroFig,'voroFig.png','Resolution',900)
 
 %% statistics of the lake
 LakeArea = [];
