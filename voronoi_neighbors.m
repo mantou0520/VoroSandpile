@@ -15,12 +15,13 @@ function vn = voronoi_neighbors ( x )
 %
 %  Modified:
 %
-%    13 January 2017
+%    1 November 2021
 %
 %  Author:
 %
 %    The form of this function was suggested by Talha Arslan.
 %    John Burkardt
+%    modified by Teng Man, manteng@westlake.edu.cn
 %
 %  Input:
 %
