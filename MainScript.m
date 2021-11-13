@@ -77,7 +77,7 @@ xlabel('Avalanche Size')
 ylabel('No. of observed avalanches')
 % set(gca,'FontName','Times New Roman')
 set(gca,'FontName','Nimbus Roman') % for Ubuntu system
-exportgraphics(avalanchHisto,'AvalancheHisto.png','Resolution',1500)
+exportgraphics(avalanchHisto,'AvalancheHisto.png','Resolution',1200)
 
 
 %% plot final landscape
