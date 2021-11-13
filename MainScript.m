@@ -3,7 +3,7 @@
 % et al, PRL, 1987 on a 2D Voronoi space
 % Author: Teng Man, manteng0520@outlook.com
 % November 2021
-% Note: lots of the functions were modified from
+% Note: lots of the code were modified from
 %       https://github.com/flrs/visual_sandpile
 % 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
@@ -61,7 +61,7 @@ yfit = histoData;
 
 [fitresult, gof, xData, yData] = createPowerFit(xfit, yfit);
 
-figure
+avalanchHisto = figure('position', [200 200 500 500])
 % plot(histoEdge(1:end-1), histoData, 'o','MarkerEdgeColor','k',...
 %     'MarkerFaceColor','g','MarkerSize',8)
 % hold on
@@ -77,6 +77,7 @@ xlabel('Avalanche Size')
 ylabel('No. of observed avalanches')
 % set(gca,'FontName','Times New Roman')
 set(gca,'FontName','Nimbus Roman') % for Ubuntu system
+exportgraphics(avalanchHisto,'AvalancheHisto.png','Resolution',1500)
 
 
 %% plot final landscape
