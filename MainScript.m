@@ -101,7 +101,7 @@ colormap(gray(MaxNbr));
 xlim([0 pile_width]);
 ylim([0 pile_width]);
 set(gca, 'xtick', [],'ytick', []);
-exportgraphics(finalConfig,'finalConfig.png','Resolution',1500)
+exportgraphics(finalConfig,'finalConfig.png','Resolution',600)
 
 
 %% plot the lake/land binary plot
@@ -188,7 +188,7 @@ legend('Data','Ferenc & Neda 2007','FontSize',12,'location','southwest')
 set(gca,'FontName','Nimbus Roman')
 set(gca, 'FontSize',14)
 
-exportgraphics(voroFig,'voroFig.png','Resolution',900)
+exportgraphics(voroFig,'voroFig.png','Resolution',600)
 
 %% statistics of the lake
 LakeArea = [];
@@ -211,4 +211,4 @@ set(gca,'YScale','log')
 set(gca,'FontName','Nimbus Roman') % for Ubuntu system
 set(gca,'FontSize',14)
 
-exportgraphics(lakeFig,'LakeFig.png','Resolution',900)
+exportgraphics(lakeFig,'LakeFig.png','Resolution',600)
