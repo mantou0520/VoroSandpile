@@ -4,20 +4,19 @@ function [pile, particles, intermediate_piles] = resolveVoroPeaks(pile, particle
 % Syntax:  [pile, particles, intermediate_piles] = resolvePeaks(pile, particles, peak_pos, pile_width)
 %
 % Inputs:
-%    pile - Matrix of shape (pile width, pile width,
-%       no. of history time steps), with integer values from 0 to 4
+%    pile - information of voronoi elements
+%    particles - objects which have all the neighbor info of voronoi
+%                   elements
 %    peak_pos - Vector containing positions of all peaks
+%    pile_width - Here, pile_width means the number of voronoi elements
 %
 % Outputs:
-%    pile - Matrix of shape (pile width, pile width), with integer values 
-%       from 0 to 4, with peaks in initial pile resolved (might now contain
-%       peaks resulting from resolving the initial peaks)
+%    pile - information of voronoi elements
+%    particles - objects which have all the neighbor info of voronoi
+%                   elements
 %    intermediate_piles - Matrix of shape (pile width, pile width, no. of
 %    intermediate time steps), with integer values from 0 to 4, containing 
 %    all intermediate steps taken in resolving the peaks
-%
-% Example:
-%    [pile, intermediate_piles] = resolvePeaks([4 1;3 2], 1)
 %
 % Other m-files required: none
 % Subfunctions: none
@@ -27,7 +26,8 @@ function [pile, particles, intermediate_piles] = resolveVoroPeaks(pile, particle
 %
 % Author: Teng Man
 % Website: 
-% November 2021; 
+% November 2021;
+% Reference: https://github.com/flrs/visual_sandpile
 
 %------------- BEGIN CODE --------------
 %% initialize
