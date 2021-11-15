@@ -16,7 +16,7 @@ clc
 pile_width = 50;            % width of the Voronoi sand pile
 boundary_gap = 1;           % gap of the sinking region
 voronoiNum = pile_width^2;  % number of voronoi positions in the space
-sandNum = 30000;            % number of sand grains we want to add to the space
+sandNum = 12*voronoiNum;    % number of sand grains we want to add to the space
 realNum = 1;                % number of realizations, 1 is OK for simulation
 lakeLevel = 4;              % the level below which is considered under water
 
@@ -49,19 +49,18 @@ set(gca,'YScale','log')
 
 %% plot the histogram with fitting
 figure
-h = histogram(avalanche_store,'BinWidth',1);
+h = histogram(avalanche_store,'BinWidth',1,'normalization','pdf');
 set(gca,'XScale','log')
 set(gca,'YScale','log')
-xlim([1 100])
 
 histoEdge = h.BinEdges;
 histoData = h.Values;
-xfit = histoEdge(1:end-1);
+xfit = 0.5*(histoEdge(1:end-1) + histoEdge(2:end));
 yfit = histoData;
 
 [fitresult, gof, xData, yData] = createPowerFit(xfit, yfit);
 
-avalanchHisto = figure('position', [200 200 500 500])
+avalanchHisto = figure('position', [200 200 600 400])
 % plot(histoEdge(1:end-1), histoData, 'o','MarkerEdgeColor','k',...
 %     'MarkerFaceColor','g','MarkerSize',8)
 % hold on
@@ -72,7 +71,7 @@ set(gca,'FontSize',14)
 plt(1).MarkerSize = 10;
 plt(1).MarkerFaceColor = 'g';
 plt(2).LineWidth = 1.5;
-ylim([1 2000])
+ylim([0.0001 1])
 xlabel('Avalanche Size')
 ylabel('No. of observed avalanches')
 % set(gca,'FontName','Times New Roman')
